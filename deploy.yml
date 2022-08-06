@@ -1,0 +1,13 @@
+---
+- name: "Installation d'un conteneur apache"
+  hosts: prod
+  become: true
+  become_user: parallels
+  tasks:
+  - name: "Create apache a container"
+    docker_container:
+      name: webapp
+      image: httpd
+      ports:
+        - "80:80"
+            
